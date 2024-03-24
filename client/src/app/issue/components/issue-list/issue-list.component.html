@@ -1,0 +1,12 @@
+<div>
+  <h1>Issue list</h1>
+  <div *ngIf="issues.length > 0; else empty">
+    <app-issue-detail *ngFor="let issue of issues" [issue]="issue"></app-issue-detail>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div>
+    You have no issues.
+  </div>
+</ng-template>
