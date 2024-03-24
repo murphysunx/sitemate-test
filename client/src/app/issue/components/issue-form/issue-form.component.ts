@@ -12,7 +12,8 @@ import { EditIssueForm } from '../../interfaces/edit-issue.interface';
   styleUrls: ['./issue-form.component.scss'],
 })
 export class IssueFormComponent implements OnInit {
-  @Input() issue!: Issue;
+  @Input() issue?: Issue;
+  @Input() cta!: string;
 
   @Output() submit = new EventEmitter<EditIssueForm>();
 
@@ -20,8 +21,8 @@ export class IssueFormComponent implements OnInit {
   description: string = '';
 
   ngOnInit(): void {
-    this.title = this.issue.title;
-    this.description = this.issue.description;
+    this.title = this.issue?.title || '';
+    this.description = this.issue?.description || '';
   }
 
   save() {
